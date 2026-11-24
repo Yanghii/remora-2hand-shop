@@ -13,7 +13,9 @@ export const BACKEND_LABEL = IS_CLOUD_SUPABASE
   ? 'Supabase Cloud (PostgreSQL · 0đ/tháng)'
   : IS_LOCALHOST
     ? 'Backend Local Server (SQLite · Realtime)'
-    : 'Netlify Cloud (PostgreSQL + Blobs · 24/7)';
+    : typeof window !== 'undefined' && window.location.hostname.includes('vercel.app')
+      ? 'Vercel Cloud (Neon PostgreSQL + Blob · 0đ)'
+      : 'Cloud Server (PostgreSQL · 24/7)';
 
 const supabase = IS_CLOUD_SUPABASE ? createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
 

@@ -2,6 +2,10 @@ node_modules/
 dist/
 .env
 .netlify/
+.vercel/
 server/data/
 server/uploads/
 *.log
+
+.vercel
+.env*
